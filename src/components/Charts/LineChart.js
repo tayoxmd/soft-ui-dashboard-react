@@ -20,10 +20,14 @@ class LineChart extends React.Component {
   }
 
   render() {
+    const { chartData, chartOptions } = this.state;
+    if (!chartData || !Array.isArray(chartData) || chartData.length === 0) {
+      return null;
+    }
     return (
       <ReactApexChart
-        options={this.state.chartOptions}
-        series={this.state.chartData}
+        options={chartOptions}
+        series={chartData}
         type="area"
         width="100%"
         height="100%"

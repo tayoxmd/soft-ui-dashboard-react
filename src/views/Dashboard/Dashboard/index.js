@@ -27,6 +27,7 @@ import OrdersOverview from "./components/OrdersOverview";
 import Projects from "./components/Projects";
 import SalesOverview from "./components/SalesOverview";
 import WorkWithTheRockets from "./components/WorkWithTheRockets";
+import WorldMap from "./components/WorldMap";
 
 export default function Dashboard() {
   const iconBoxInside = useColorModeValue("white", "white");
@@ -117,6 +118,13 @@ export default function Dashboard() {
           amount={30}
           data={timelineData}
         />
+      </Grid>
+      <Grid
+        templateColumns={{ sm: "1fr", lg: "1fr" }}
+        templateRows={{ sm: "1fr", lg: "1fr" }}
+        gap='24px'
+        mt='24px'>
+        <WorldMap />
       </Grid>
     </Flex>
   );

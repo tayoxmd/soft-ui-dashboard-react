@@ -47,28 +47,36 @@ const Projects = ({ title, amount, captions, data }) => {
       <Table variant='simple' color={textColor}>
         <Thead>
           <Tr my='.8rem' ps='0px'>
-            {captions.map((caption, idx) => {
+            {captions && Array.isArray(captions) && captions.length > 0 ? captions.map((caption, idx) => {
               return (
                 <Th color='gray.400' key={idx} ps={idx === 0 ? "0px" : null}>
                   {caption}
                 </Th>
               );
-            })}
+            }) : null}
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((row) => {
+          {data && Array.isArray(data) && data.length > 0 ? data.map((row) => {
             return (
               <DashboardTableRow
-                key={row.name}
+                key={row.name || Math.random()}
                 name={row.name}
                 logo={row.logo}
-                members={row.members}
+                members={row.members || []}
                 budget={row.budget}
                 progression={row.progression}
               />
             );
-          })}
+          }) : (
+            <Tr>
+              <Td colSpan={captions?.length || 4} textAlign='center' py='20px'>
+                <Text fontSize='sm' color='gray.400'>
+                  No data available
+                </Text>
+              </Td>
+            </Tr>
+          )}
         </Tbody>
       </Table>
     </Card>

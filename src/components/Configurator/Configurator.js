@@ -234,4 +234,8 @@ Configurator.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   fixed: PropTypes.bool,
+  isChecked: PropTypes.bool,
+  onTransparent: PropTypes.func,
+  onOpaque: PropTypes.func,
+  onSwitch: PropTypes.func,
 };

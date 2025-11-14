@@ -27,10 +27,10 @@ const OrdersOverview = ({ title, amount, data }) => {
       </CardHeader>
       <CardBody ps='20px' pe='0px' mb='31px' position='relative'>
         <Flex direction='column'>
-          {data.map((row, index, arr) => {
+          {data && Array.isArray(data) && data.length > 0 ? data.map((row, index, arr) => {
             return (
               <TimelineRow
-                key={row.title}
+                key={row.title || index}
                 logo={row.logo}
                 title={row.title}
                 date={row.date}
@@ -39,7 +39,11 @@ const OrdersOverview = ({ title, amount, data }) => {
                 arrLength={arr.length}
               />
             );
-          })}
+          }) : (
+            <Text fontSize='sm' color='gray.400' textAlign='center' py='20px'>
+              No data available
+            </Text>
+          )}
         </Flex>
       </CardBody>
     </Card>

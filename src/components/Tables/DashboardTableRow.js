@@ -32,7 +32,7 @@ function DashboardTableRow(props) {
 
       <Td>
         <AvatarGroup size="sm">
-          {members.map((member) => {
+          {members && Array.isArray(members) && members.length > 0 ? members.map((member) => {
             return (
               <Avatar
                 name="Ryan Florence"
@@ -41,7 +41,7 @@ function DashboardTableRow(props) {
                 _hover={{ zIndex: "3", cursor: "pointer" }}
               />
             );
-          })}
+          }) : null}
         </AvatarGroup>
       </Td>
       <Td>

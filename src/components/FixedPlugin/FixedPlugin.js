@@ -47,4 +47,6 @@ FixedPlugin.propTypes = {
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
   onSwitch: PropTypes.func,
+  secondary: PropTypes.bool,
+  onOpen: PropTypes.func,
 };

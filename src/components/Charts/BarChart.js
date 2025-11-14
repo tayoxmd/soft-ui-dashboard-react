@@ -20,6 +20,10 @@ class BarChart extends Component {
   }
 
   render() {
+    const { chartData, chartOptions } = this.state;
+    if (!chartData || !Array.isArray(chartData) || chartData.length === 0) {
+      return null;
+    }
     return (
       <Card
         py="1rem"
@@ -29,8 +33,8 @@ class BarChart extends Component {
         position="relative"
       >
         <Chart
-          options={this.state.chartOptions}
-          series={this.state.chartData}
+          options={chartOptions}
+          series={chartData}
           type="bar"
           width="100%"
           height="100%"
