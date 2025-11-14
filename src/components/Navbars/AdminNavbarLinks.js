@@ -46,7 +46,6 @@ export default function HeaderLinks(props) {
   }
   const settingsRef = React.useRef();
 
-    return history.push("/auth/signin");
   return (
     <Flex
       pe={{ sm: "0px", md: "16px" }}
